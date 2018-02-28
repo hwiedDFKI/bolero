@@ -1,4 +1,11 @@
 #!/bin/python
+'''
+This script transforms the output of the PSO optimizer in pso_best_params.dat to the parameters given to it. Therefore provide the file with the parameter limits as second argument and the target as third. The parameter file should be in the yaml-format:
+
+Parameters:
+  - { name: $PARAMETER_NAME, min: 0.0, max: 0.0}
+
+'''
 import yaml
 import sys
 import os

@@ -1,4 +1,12 @@
 #!/bin/python3
+'''
+This script transforms the output of the CMA-ES optimizer in allcmaes.dat to the parameters given to it. Therefore provide the file with the parameter limits as second argument and the target as third. The parameter file should be in the yaml-format:
+
+Parameters:
+  - { name: $PARAMETER_NAME, min: 0.0, max: 0.0}
+
+'''
+
 import yaml
 import sys
 import os
@@ -30,8 +38,8 @@ if len(sys.argv) >= 3:
         i += 1
     if len(param_file) == len(pOut):
         out_file = open(os.path.abspath(sys.argv[3]), "w")
-        out_file.write(cmaes[[l[0:5] for l in cmaes].index("# ---")]
-                       + "\n#" + cmaes[xbeststart - 1] + "\n")
+        out_file.write(cmaes[[l[0:5] for l in cmaes].index("# ---")] +
+                       "\n#" + cmaes[xbeststart - 1] + "\n")
         for i in range(len(pOut)):
             param_min = param_file[i]["min"]
             param_max = param_file[i]["max"]
